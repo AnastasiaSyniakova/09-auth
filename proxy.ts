@@ -1,4 +1,5 @@
 import type { AxiosResponse } from 'axios';
+import { cookies } from 'next/headers';
 import { NextRequest, NextResponse } from 'next/server';
 import { checkSession } from '@/lib/api/serverApi';
 
@@ -24,8 +25,9 @@ function copySessionCookies(
 
 export async function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
-  const accessToken = request.cookies.get('accessToken');
-  const refreshToken = request.cookies.get('refreshToken');
+  const cookieStore = await cookies();
+  const accessToken = cookieStore.get('accessToken');
+  const refreshToken = cookieStore.get('refreshToken');
   const isPrivateRoute = privateRoutes.some((route) =>
     pathname.startsWith(route),
   );
