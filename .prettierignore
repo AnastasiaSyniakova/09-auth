@@ -1,0 +1,6 @@
+app/api
+components/AuthNavigation/AuthNavigation.module.css
+app/(auth routes)/sign-in/SignInPage.module.css
+app/(auth routes)/sign-up/SignUpPage.module.css
+app/(private routes)/profile/ProfilePage.module.css
+app/(private routes)/profile/edit/EditProfilePage.module.css
